@@ -27,13 +27,11 @@
 
 // tweak header support:
 
-#ifdef __has_include
-# if __has_include(<nonstd/variant.tweak.hpp>)
-#  include <nonstd/variant.tweak.hpp>
-# endif
-#define variant_HAVE_TWEAK_HEADER  1
+#if defined(__has_include) && __has_include(<nonstd/variant.tweak.hpp>)
+# include <nonstd/variant.tweak.hpp>
+# define variant_HAVE_TWEAK_HEADER  1
 #else
-#define variant_HAVE_TWEAK_HEADER  0
+# define variant_HAVE_TWEAK_HEADER  0
 //# pragma message("variant.hpp: Note: Tweak header not supported.")
 #endif
 
